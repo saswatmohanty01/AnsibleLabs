@@ -37,7 +37,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  heroes-api-deploy
+  name:  heroes-api
   labels:
     name:  heroes-api
 spec:
@@ -92,7 +92,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  heroes-web-deploy
+  name:  heroes-web
   labels:
     name:  heroes-web
 spec:
