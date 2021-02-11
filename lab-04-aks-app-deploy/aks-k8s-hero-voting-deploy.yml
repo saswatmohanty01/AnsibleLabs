@@ -42,6 +42,9 @@ metadata:
     name:  heroes-api
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: heroes-api
   strategy:
     rollingUpdate:
       maxSurge: 1
