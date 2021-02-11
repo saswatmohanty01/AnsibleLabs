@@ -22,9 +22,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: heroes-api
+  name: api
   labels:
-    name: heroes-api
+    name: api
 spec:
   type: ClusterIP
   ports:
@@ -34,17 +34,14 @@ spec:
   selector:
     name: heroes-api
 ---
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name:  heroes-api
+  name:  heroes-api-deploy
   labels:
     name:  heroes-api
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: heroes-api
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -77,9 +74,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: heroes-web
+  name: web
   labels:
-    name: heroes-web
+    name: web
 spec:
   type: LoadBalancer
   ports:
@@ -89,17 +86,14 @@ spec:
   selector:
     name: heroes-web
 ---
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name:  heroes-web
+  name:  heroes-web-deploy
   labels:
     name:  heroes-web
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: heroes-web
   strategy:
     rollingUpdate:
       maxSurge: 1
